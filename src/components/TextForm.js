@@ -1,31 +1,30 @@
 import React, { useState } from "react";
 
+
 export default function TextForm(props) {
 
-      
-    
  
-  
-
   const handleUpClick = () => {
     // console.log("uppercase");
     let newText = text.toUpperCase();
-
     setText(newText);
+    props.showAlert("Converted To UPPERCASE","success");
   };
   const handlelowClick = () => {
     let newText = text.toLowerCase();
     setText(newText);
+    props.showAlert("Converted To lowercase","success");
   };
 
   const handleClearClick = () => {
     let newText = "";
     setText(newText);
+    props.showAlert("Textarea is cleared","success");
   };
   const handleExtraSpace = () => {
     let newText = text.split(/[ ]+/);
-
     setText(newText.join(" "));
+    props.showAlert("Extra spaces are removed","success");
   };
 
   const handleEmailExtractor = () => {
@@ -41,12 +40,14 @@ export default function TextForm(props) {
     setText(result.toString());
     else
     setText('');
+    props.showAlert("Emails Extracted","success");
   };
   const handlecopy = () => {
     // console.log("changed");
     let text1 = document.getElementById("mybox");
 
     navigator.clipboard.writeText(text1.value);
+    props.showAlert("Text Copied","success");
   };
   const handleonchange = (event) => {
     // console.log("changed");
@@ -54,7 +55,8 @@ export default function TextForm(props) {
   };
 
   const [text, setText] = useState("");
-
+  
+  
   return (
     <>
       <div>
@@ -75,7 +77,7 @@ export default function TextForm(props) {
             Give Your Text
           </label>
           <textarea
-            className="form-control"
+            className={`form-control ${props.mode}`}
             placeholder="enter the text"
             
             value={text}
@@ -83,7 +85,7 @@ export default function TextForm(props) {
             rows="8"
             onChange={handleonchange}
             style={{
-              backgroundColor: props.mode === "light" ? "white" : "gray",
+              backgroundColor: props.mode === "light" ? "white" : "#9197a3",
               color: props.mode === "light" ? "black" : "white",
               
             }}
@@ -120,7 +122,7 @@ export default function TextForm(props) {
         </p>
         <p>{0.008 * text.split(" ").length} minute to read</p>
         <h2>preview</h2>
-        <p>{text}</p>
+        <p>{text.length>0?text:"Enter text to preview"}</p>
       </div>
     </>
   );

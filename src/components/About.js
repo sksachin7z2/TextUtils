@@ -2,12 +2,12 @@ import React,{useState} from "react";
 import { isCompositeComponentWithType } from "react-dom/test-utils";
 
 export default function About() {
+  const [btntext, setBtntext] = useState("Enable Dark Mode")
     const [myStyle,setmyStyle] = useState(
     {
         color:'black',
         backgroundColor:'white'
     })
-    const [btntext, setBtntext] = useState("Enable Dark Mode")
 
     const toggleStyle=()=>{
         if(myStyle.color==='black')

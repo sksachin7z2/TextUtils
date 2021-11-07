@@ -11,8 +11,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 } */
-.placeholdercolor::-webkit-input-placeholder {
-  color:white
+.dark::-webkit-input-placeholder {
+  color:white !important
   }
 .caretColor{
     caret-color:antiquewhite
