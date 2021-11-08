@@ -91,22 +91,22 @@ export default function TextForm(props) {
             }}
           ></textarea>
         </div>
-        <button className="btn btn-primary" onClick={handleUpClick}>
+        <button disabled={text.length===0} className="btn btn-primary mx-2 my-2" onClick={handleUpClick}>
           convert to uppercase
         </button>
-        <button className="btn btn-primary mx-2" onClick={handlelowClick}>
+        <button disabled={text.length===0} className="btn btn-primary mx-2 my-2" onClick={handlelowClick}>
           convert to lowercase
         </button>
-        <button className="btn btn-primary mx-2" onClick={handleClearClick}>
+        <button disabled={text.length===0} className="btn btn-primary mx-2 my-2" onClick={handleClearClick}>
           clear Text
         </button>
-        <button className="btn btn-primary mx-2" onClick={handlecopy}>
+        <button disabled={text.length===0} className="btn btn-primary mx-2 my-2" onClick={handlecopy}>
           Copy Text
         </button>
-        <button className="btn btn-primary mx-2" onClick={handleExtraSpace}>
+        <button disabled={text.length===0} className="btn btn-primary mx-2 my-2" onClick={handleExtraSpace}>
           Remove Extra Space
         </button>
-        <button className="btn btn-primary mx-2" onClick={handleEmailExtractor}>
+        <button disabled={text.length===0} className="btn btn-primary mx-2  my-2" onClick={handleEmailExtractor}>
           Email Extrator
         </button>
       </div>
@@ -118,7 +118,9 @@ export default function TextForm(props) {
       >
         <h2>your text summary</h2>
         <p>
-          {text.split(" ").length} words and {text.length} characters
+          {text.split(" ").filter((element)=>{
+            return element.length!==0
+          }).length} words and {text.length} characters
         </p>
         <p>{0.008 * text.split(" ").length} minute to read</p>
         <h2>preview</h2>
