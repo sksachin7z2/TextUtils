@@ -1,3 +1,6 @@
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/daffccf0-c809-4850-b010-c465851bf77a/deploy-status)](https://app.netlify.com/sites/mytextutils-enhance/deploys)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
