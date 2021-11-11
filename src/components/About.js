@@ -1,35 +1,37 @@
-import React,{useState} from "react";
+import React from "react";
 // import { isCompositeComponentWithType } from "react-dom/test-utils";
 
-export default function About() {
-  const [btntext, setBtntext] = useState("Enable Dark Mode")
-    const [myStyle,setmyStyle] = useState(
-    {
-        color:'black',
-        backgroundColor:'white'
-    })
+export default function About(props) {
+  // const [btntext, setBtntext] = useState("Enable Dark Mode")
+    // const [myStyle,setmyStyle] = useState(
+    // {
+    //     color:'black',
+    //     backgroundColor:'white'
+    // })
 
-    const toggleStyle=()=>{
-        if(myStyle.color==='black')
-        {
-            setmyStyle({
-                color:'white',
-                backgroundColor:'black',
-                border:'1px solid white'
-            })
-            setBtntext("Enable Light Mode");
-        }
-        else{
-            setmyStyle({
-                color:'black',
-                backgroundColor:'white'
-            })
-            setBtntext("Enable Dark Mode");
-        }
-    }
+    // const toggleStyle=()=>{
+    //     if(myStyle.color==='black')
+    //     {
+    //         setmyStyle({
+    //             color:'white',
+    //             backgroundColor:'black',
+    //             border:'1px solid white'
+    //         })
+    //         setBtntext("Enable Light Mode");
+    //     }
+    //     else{
+    //         setmyStyle({
+    //             color:'black',
+    //             backgroundColor:'white'
+    //         })
+    //         setBtntext("Enable Dark Mode");
+    //     }
+    // }
+    let myStyle={color:props.mode==='dark'?'white':'black',
+                  backgroundColor:props.mode==='dark'?'#202340':'white'}
   return (
     <div>
-      <div className="container" style={myStyle}>
+      <div className="container" style={{color:props.mode==='dark'?'white':'black'}}>
           <h2>About Us</h2>
         <div className="accordion" id="accordionExample">
           <div className="accordion-item">
@@ -132,9 +134,7 @@ export default function About() {
             </div>
           </div>
         </div>
-      <div className="container">
-      <button type="button" onClick={toggleStyle} className="btn btn-primary my-3">{btntext}</button>
-      </div>
+     
       </div>
     </div>
   );
