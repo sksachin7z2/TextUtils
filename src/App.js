@@ -6,7 +6,7 @@ import Navbars from './components/Navbars';
 import Alert from './components/Alert';
 import './index.css';
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Routes,
   Route
   
